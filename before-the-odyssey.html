@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Before the Odyssey: the war, the gods, and Helen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sea:#13264A;
+    --wine:#7A1F2E;
+    --bone:#F5F0E6;
+    --foam:#DCE4E8;
+    --bronze:#B8913A;
+    --ink:#1C1A17;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{
+    margin:0;
+    background:var(--bone);
+    color:var(--ink);
+    font-family:"IBM Plex Sans",system-ui,sans-serif;
+    font-size:18px;
+    line-height:1.6;
+  }
+  a{color:var(--wine)}
+  a:focus-visible{outline:3px solid var(--bronze);outline-offset:3px}
+
+  /* Hero */
+  .hero{background:var(--sea);color:var(--bone);padding:72px 24px 56px}
+  .hero-inner{max-width:760px;margin:0 auto}
+  .hero h1{
+    font-family:"Fraunces",serif;
+    font-variation-settings:"opsz" 144,"SOFT" 40;
+    font-weight:600;
+    font-size:clamp(2.6rem,7vw,4.6rem);
+    line-height:1.02;
+    letter-spacing:-0.02em;
+    margin:0 0 24px;
+  }
+  .hero p{font-size:1.15rem;max-width:560px;margin:0 0 12px;color:var(--foam)}
+  .hero .small{font-size:.95rem;color:#9FB0C4;margin-top:28px}
+
+  /* Layout */
+  main{max-width:680px;margin:0 auto;padding:16px 24px 80px}
+  section{margin-top:64px}
+  h2{
+    font-family:"Fraunces",serif;
+    font-variation-settings:"opsz" 96,"SOFT" 30;
+    font-weight:600;
+    font-size:2rem;
+    line-height:1.1;
+    color:var(--sea);
+    margin:0 0 18px;
+  }
+  h3{
+    font-family:"Fraunces",serif;
+    font-variation-settings:"opsz" 48;
+    font-weight:600;
+    font-size:1.25rem;
+    color:var(--wine);
+    margin:28px 0 6px;
+  }
+  p{margin:0 0 16px}
+  .lede{font-size:1.15rem;color:#3A3732}
+  strong{font-weight:600;color:var(--sea)}
+
+  .note{
+    border-left:4px solid var(--bronze);
+    padding:4px 0 4px 18px;
+    margin:24px 0;
+    color:#3A3732;
+  }
+  .note p:last-child{margin:0}
+
+  /* Map */
+  .map-wrap{
+    background:var(--sea);
+    border-radius:6px;
+    padding:0;
+    margin:24px -24px;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+  }
+  .map-wrap svg{display:block;min-width:720px;width:100%;height:auto}
+  .map-hint{font-size:.85rem;color:#6E6960;margin-top:-12px}
+  @media (min-width:1040px){
+    .map-wrap{margin:24px -140px}
+  }
+
+  /* Places */
+  .places{list-style:none;padding:0;margin:0}
+  .places li{padding:12px 0;border-bottom:1px solid #D9D2C4;display:grid;grid-template-columns:120px 1fr;gap:12px}
+  .places li:last-child{border-bottom:0}
+  .places .name{font-weight:600;color:var(--sea)}
+  @media (max-width:480px){.places li{grid-template-columns:1fr;gap:2px}}
+
+  /* Gods */
+  .teams{display:grid;gap:28px;margin-top:8px}
+  @media (min-width:640px){.teams{grid-template-columns:1fr 1fr}}
+  .team h3{margin:0 0 10px;padding-bottom:8px;border-bottom:2px solid var(--bronze)}
+  .team ul{list-style:none;padding:0;margin:0}
+  .team li{padding:9px 0;border-bottom:1px solid #D9D2C4}
+  .team li:last-child{border-bottom:0}
+  .team .g{font-weight:600;color:var(--sea)}
+  .team li span.role{display:block;font-size:.95rem;color:#3A3732}
+
+  /* Timeline */
+  .beats{counter-reset:beat;list-style:none;padding:0;margin:0}
+  .beats li{counter-increment:beat;position:relative;padding:0 0 22px 52px}
+  .beats li::before{
+    content:counter(beat);
+    position:absolute;left:0;top:2px;
+    width:34px;height:34px;border-radius:50%;
+    background:var(--wine);color:var(--bone);
+    font-family:"Fraunces",serif;font-weight:600;font-size:1rem;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .beats li::after{content:"";position:absolute;left:16px;top:38px;bottom:0;border-left:2px solid #D9D2C4}
+  .beats li:last-child::after{display:none}
+  .beats h3{margin:2px 0 4px}
+  .beats p{margin:0}
+
+  /* Cast strip */
+  .cast{list-style:none;padding:0;margin:0}
+  .cast li{padding:10px 0;border-bottom:1px solid #D9D2C4}
+  .cast li:last-child{border-bottom:0}
+  .cast .who{font-weight:600;color:var(--sea)}
+  .cast .city{color:#6E6960;font-size:.9rem}
+
+  /* Phrases */
+  .phrases{margin:0;padding:0}
+  .phrases dt{font-weight:600;color:var(--sea);margin-top:14px}
+  .phrases dd{margin:2px 0 0}
+
+  /* Writers */
+  .writers{padding-left:20px}
+  .writers li{margin-bottom:12px}
+
+  footer{
+    max-width:680px;margin:0 auto;padding:24px;
+    border-top:1px solid #D9D2C4;
+    font-size:.9rem;color:#6E6960;
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <h1>Before he could go home, there was a war.</h1>
+    <p>Nolan's <em>Odyssey</em> starts after Troy has already burned. This is the ten years that came first: how it began, which gods picked sides, and what actually happened with Helen.</p>
+    <p>None of this spoils the film. It's the part the film assumes you know.</p>
+    <p class="small">About eight minutes. Read this one first, then the Odyssey guide.</p>
+  </div>
+</header>
+
+<main>
+
+<section id="map">
+  <h2>Where all of this happens</h2>
+  <p class="lede">Real places. You can fly to every one of them.</p>
+
+  <div class="map-wrap" aria-label="Map of Greece and the Aegean showing Ithaca, Sparta, Mycenae, Aulis, Mount Olympus and Troy">
+<svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg" role="img" font-family="IBM Plex Sans, sans-serif">
+<title>Map of the Greek world of the Trojan War</title>
+<rect width="800" height="500" fill="#13264A"/>
+<g fill="#2E4468" stroke="#4E6690" stroke-width="1.5" stroke-linejoin="round">
+<path d="M-8.9,-18.7 L35.6,74.6 L80.0,121.3 L106.7,158.6 L133.4,186.6 L155.6,191.3 L186.7,223.9 L208.9,247.2 L231.1,223.9 L275.6,214.6 L320.0,219.3 L351.2,228.6 L362.7,251.9 L355.6,281.8 L342.3,289.2 L302.3,284.6 L257.8,279.9 L222.2,293.9 L208.9,317.2 L222.2,354.5 L231.1,387.2 L248.9,396.5 L262.3,387.2 L280.0,382.5 L297.8,415.2 L311.2,429.2 L324.5,401.2 L346.7,410.5 L373.4,424.5 L360.0,391.9 L351.2,363.9 L368.9,335.9 L386.7,326.6 L364.5,307.9 L346.7,293.9 L355.6,281.8 L386.7,284.6 L408.9,293.9 L448.9,312.6 L453.4,289.2 L435.6,265.9 L400.1,250.0 L368.9,228.6 L346.7,200.6 L342.3,177.3 L351.2,153.9 L382.3,167.9 L364.5,139.9 L333.4,116.6 L328.9,84.0 L346.7,51.3 L386.7,65.3 L417.8,98.0 L435.6,74.6 L444.5,93.3 L471.2,79.3 L475.6,98.0 L497.8,70.0 L524.5,46.6 L577.9,14.0 L640.1,9.3 L702.3,0.0 L675.6,-28.0 Z"/>
+<path d="M640.1,-28.0 L684.5,42.0 L640.1,79.3 L653.4,88.6 L671.2,60.6 L746.8,56.0 L835.7,46.6 L853.4,-28.0 Z"/>
+<path d="M671.2,60.6 L635.6,88.6 L644.5,102.6 L635.6,139.9 L675.6,167.9 L702.3,186.6 L680.1,214.6 L697.9,242.6 L720.1,261.2 L697.9,289.2 L733.4,317.2 L755.7,345.2 L737.9,368.5 L791.2,401.2 L853.4,410.5 L853.4,46.6 Z"/>
+<path d="M360.0,191.3 L400.1,186.6 L440.1,191.3 L466.7,219.3 L497.8,261.2 L489.0,279.9 L466.7,265.9 L440.1,242.6 L417.8,233.2 L386.7,209.9 Z"/>
+<path d="M144.0,233.2 L152.9,235.1 L155.6,251.9 L146.7,250.0 Z"/>
+<path d="M120.0,237.9 L137.8,242.6 L142.2,261.2 L133.4,275.2 L120.0,270.6 L115.6,251.9 Z"/>
+<path d="M146.7,289.2 L168.9,293.9 L173.4,307.9 L151.1,312.6 Z"/>
+<path d="M57.8,112.0 L80.0,121.3 L93.3,144.6 L80.0,149.3 L62.2,130.6 Z"/>
+<path d="M609.0,163.3 L640.1,149.3 L675.6,158.6 L666.8,186.6 L640.1,191.3 L613.4,181.9 Z"/>
+<path d="M617.9,228.6 L635.6,228.6 L631.2,261.2 L617.9,256.6 Z"/>
+<path d="M675.6,298.6 L711.2,298.6 L715.6,307.9 L680.1,309.8 Z"/>
+<path d="M537.8,98.0 L564.5,93.3 L569.0,112.0 L542.3,116.6 Z"/>
+<path d="M484.5,191.3 L497.8,191.3 L497.8,209.9 L489.0,207.1 Z"/>
+</g>
+<g fill="#2E4468">
+<circle cx="520.1" cy="293.9" r="3.5"/>
+<circle cx="533.4" cy="326.6" r="3.5"/>
+<circle cx="546.7" cy="345.2" r="3.5"/>
+<circle cx="577.9" cy="368.5" r="3.5"/>
+<circle cx="551.2" cy="368.5" r="3.5"/>
+<circle cx="564.5" cy="401.2" r="3.5"/>
+<circle cx="511.2" cy="359.2" r="3.5"/>
+<circle cx="569.0" cy="331.2" r="3.5"/>
+<circle cx="480.1" cy="331.2" r="3.5"/>
+<circle cx="533.4" cy="429.2" r="3.5"/>
+<circle cx="622.3" cy="359.2" r="3.5"/>
+<circle cx="551.2" cy="289.2" r="3.5"/>
+</g>
+
+<!-- route: Aulis to Troy -->
+<path d="M414,236 C460,175 560,130 636,104" fill="none" stroke="#DCE4E8" stroke-width="2" stroke-dasharray="5 6"/>
+<!-- route: Sparta to Troy (Paris & Helen) -->
+<path d="M318,372 C420,400 560,330 645,110" fill="none" stroke="#B8913A" stroke-width="2" stroke-dasharray="2 5" opacity=".8"/>
+<g fill="#B8913A" stroke="#13264A" stroke-width="3">
+<circle cx="151" cy="243" r="8"/><circle cx="305" cy="367" r="8"/><circle cx="333" cy="305" r="8"/>
+<circle cx="409" cy="243" r="8"/><circle cx="644" cy="97" r="8"/><circle cx="420" cy="282" r="5" fill="#9FB0C4"/>
+</g>
+<g fill="#F5F0E6" font-size="15" font-weight="600">
+<text x="151" y="222" text-anchor="middle">Ithaca</text>
+<text x="292" y="392" text-anchor="middle">Sparta</text>
+<text x="322" y="300" text-anchor="end">Mycenae</text>
+<text x="427" y="250" text-anchor="start">Aulis</text>
+<text x="660" y="90" text-anchor="start">Troy</text>
+</g>
+<g fill="#9FB0C4" font-size="12.5">
+<text x="151" y="264" text-anchor="middle">Odysseus's home</text>
+<text x="292" y="408" text-anchor="middle">Menelaus &amp; Helen</text>
+<text x="322" y="315" text-anchor="end">Agamemnon</text>
+<text x="427" y="265" text-anchor="start">the fleet gathers here</text>
+<text x="660" y="107" text-anchor="start">Priam, Hector, Paris</text>
+<text x="430" y="292" text-anchor="start">Athens</text>
+</g>
+<!-- Olympus -->
+<path d="M286,88 L298,66 L310,88 Z" fill="#DCE4E8"/>
+<text x="316" y="84" fill="#DCE4E8" font-size="13">Mount Olympus</text>
+<text x="316" y="99" fill="#9FB0C4" font-size="12">where the gods live</text>
+<!-- Sea labels -->
+<text x="570" y="345" fill="#5F7AA6" font-size="18" font-style="italic" text-anchor="middle" font-family="Fraunces, serif">Aegean Sea</text>
+<text x="60" y="420" fill="#5F7AA6" font-size="18" font-style="italic" text-anchor="start" font-family="Fraunces, serif">Ionian Sea</text>
+<text x="720" y="470" fill="#9FB0C4" font-size="12" text-anchor="end">modern Turkey</text>
+<text x="720" y="486" fill="#5F7AA6" font-size="11" text-anchor="end">Troy is about 1,000 km from Ithaca by sea</text>
+<!-- legend -->
+<g font-size="12" fill="#9FB0C4">
+<line x1="30" y1="470" x2="70" y2="470" stroke="#DCE4E8" stroke-width="2" stroke-dasharray="5 6"/><text x="78" y="474">Greek fleet sails to war</text>
+<line x1="30" y1="488" x2="70" y2="488" stroke="#B8913A" stroke-width="2" stroke-dasharray="2 5"/><text x="78" y="492">Paris takes Helen home</text>
+</g>
+</svg>
+  </div>
+  <p class="map-hint">On a phone, swipe the map sideways.</p>
+
+  <ul class="places">
+    <li><span class="name">Troy</span><span>A rich walled city on the coast of what's now Turkey, guarding the sea route to the Black Sea. Ruled by old King Priam, defended by his son Hector. It was a real place: a German businessman dug it up in the 1870s.</span></li>
+    <li><span class="name">Sparta</span><span>Helen's home, and her husband Menelaus's kingdom. Where the trouble starts.</span></li>
+    <li><span class="name">Mycenae</span><span>The richest, bossiest kingdom in Greece, ruled by Agamemnon, Menelaus's older brother. He ends up in charge of the whole war.</span></li>
+    <li><span class="name">Ithaca</span><span>A small rocky island on the far side of Greece. Odysseus's home. About as far from Troy as a Greek could be.</span></li>
+    <li><span class="name">Aulis</span><span>The beach where a thousand ships gathered before sailing east.</span></li>
+    <li><span class="name">Olympus</span><span>Greece's tallest mountain. The gods live on top and watch everything below like it's television.</span></li>
+  </ul>
+</section>
+
+<section id="gods">
+  <h2>The gods, in one page</h2>
+  <p class="lede">They're a family. An immortal, gorgeous, deeply petty family, and they treat human wars as a hobby.</p>
+  <p>Zeus is the father and king. His siblings and children run everything else: the sea, war, love, wisdom, the sun. They can't die, they can change shape, and they fall in love with humans constantly, which is why half the heroes in this story have a god for a parent. They aren't good or evil. They have favourites, and they hold grudges, and the Trojan War is basically what happens when they can't agree.</p>
+
+  <div class="teams">
+    <div class="team">
+      <h3>Rooting for the Greeks</h3>
+      <ul>
+        <li><span class="g">Hera</span><span class="role">Queen of the gods, Zeus's wife. Furious at Troy because a Trojan prince said she wasn't the prettiest. Never forgives.</span></li>
+        <li><span class="g">Athena</span><span class="role">Goddess of wisdom and clever warfare. Same grudge as Hera. Odysseus is her favourite human because he thinks the way she does.</span></li>
+        <li><span class="g">Poseidon</span><span class="role">God of the sea. Once built Troy's walls and got stiffed on payment, so he's happy to see them fall.</span></li>
+        <li><span class="g">Thetis</span><span class="role">A sea nymph, and Achilles's mother. Not powerful, but Zeus owes her a favour, and she calls it in for her son.</span></li>
+      </ul>
+    </div>
+    <div class="team">
+      <h3>Rooting for Troy</h3>
+      <ul>
+        <li><span class="g">Aphrodite</span><span class="role">Goddess of love. Won the beauty contest that started it all, so she owes Troy. Personally protects Paris, which he needs.</span></li>
+        <li><span class="g">Apollo</span><span class="role">God of the sun, archery, plague and prophecy. Troy's great protector. His arrows kill both Patroclus and Achilles.</span></li>
+        <li><span class="g">Ares</span><span class="role">God of war, the ugly kind. Loud, brave, not very bright. Athena beats him up at one point.</span></li>
+        <li><span class="g">Zeus</span><span class="role">Officially neutral. Actually fond of Troy, but he lets fate play out and keeps the others from wrecking it entirely.</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="note">
+    <p>Two more you'll meet: <strong>Hermes</strong>, the messenger, who runs errands for Zeus; and <strong>Eris</strong>, goddess of discord, who has one job in this story and does it perfectly.</p>
+  </div>
+</section>
+
+<section id="apple">
+  <h2>How it started: a wedding, an apple, a bribe</h2>
+  <p>The gods throw a wedding for Thetis, the sea nymph, and a mortal king called Peleus. Everyone is invited except Eris, goddess of discord, for obvious reasons. She shows up anyway, tosses a golden apple onto the table with the words <em>for the fairest</em>, and leaves.</p>
+  <p>Three goddesses grab for it: Hera, Athena, Aphrodite. Zeus is too smart to judge his own wife against his own daughters, so he sends them to a human. A handsome shepherd on a hill near Troy named <strong>Paris</strong>, who happens to be a lost prince of the city.</p>
+  <p>Each goddess offers a bribe. Hera: power over all of Asia. Athena: wisdom and glory in war. Aphrodite: the most beautiful woman in the world as your wife. Paris picks Aphrodite. He is about nineteen.</p>
+  <p>The small print: the most beautiful woman in the world is already married.</p>
+</section>
+
+<section id="helen">
+  <h2>Helen</h2>
+  <p class="lede">The face that launched a thousand ships. Literally: the Greek fleet was a thousand-odd boats.</p>
+  <p>Helen is the daughter of Zeus, who visited her mother, Leda, in the form of a swan. (This is a real thing that happens in Greek myth. Don't think about it too hard.) She grows up in Sparta so beautiful that every king in Greece turns up to court her, including a young Odysseus. Her father is terrified: whoever he picks, the losers will start a war.</p>
+  <p>Odysseus, already the clever one, suggests a fix. Make every suitor swear an oath first: whoever wins Helen, all the rest will defend that marriage if anyone ever takes her. They swear. Helen goes to <strong>Menelaus</strong>, king of Sparta. Everyone goes home. Problem solved, for a few years.</p>
+  <p>Then Paris arrives in Sparta on a friendly visit. Menelaus, being a good host, goes off to a funeral in Crete and leaves his guest alone with his wife for a week. When he comes back, Helen, Paris, and a fair amount of the treasury are gone.</p>
+  <div class="note">
+    <p><strong>Did she go willingly?</strong> Homer never quite says. Some versions have Paris kidnap her. Some have her fall for him, with Aphrodite's thumb on the scale. In the <em>Iliad</em> she calls herself a shameless dog and wishes she'd died before it started, which sounds like guilt rather than a hostage. Later poets couldn't stand it and invented a version where the real Helen sat out the whole war in Egypt and Troy got a ghost. Three thousand years on, people are still arguing. The film has Lupita Nyong'o playing her, so watch what she does with it.</p>
+  </div>
+  <p>Menelaus calls in the oath. Every king who swore it has to come. Which is how a wedding present becomes the biggest army the world had seen.</p>
+</section>
+
+<section id="draft">
+  <h2>Getting the band together</h2>
+  <p>Not everyone wants to go. <strong>Odysseus</strong> has a new wife, Penelope, and a baby son. When the recruiters land on Ithaca he pretends to have gone mad, ploughing the beach and sowing it with salt. One of them puts baby Telemachus down in front of the plough. Odysseus swerves. Caught. He's the man who invented the oath and now it's dragged him in too.</p>
+  <p><strong>Achilles</strong>, the greatest fighter alive, has been told by his mother that if he goes to Troy he'll die young and famous, and if he stays home he'll die old and forgotten. She hides him on an island disguised as a girl. Odysseus turns up as a merchant with a basket of jewellery and one sword in it. Only one "girl" reaches for the sword. Caught.</p>
+  <p>The fleet gathers at Aulis and can't leave: no wind for weeks. A priest tells Agamemnon the goddess Artemis is offended and wants his daughter, <strong>Iphigenia</strong>, as a sacrifice. He sends for her, telling her mother it's for a wedding. Then he kills her. The wind comes. Remember this. His wife, Clytemnestra, does.</p>
+</section>
+
+<section id="war">
+  <h2>The war, in eight beats</h2>
+  <p class="lede">Ten years of siege. Homer's <em>Iliad</em> only covers a few weeks near the end, but they're the weeks that matter.</p>
+  <ol class="beats">
+    <li>
+      <h3>Nine years of nothing</h3>
+      <p>Troy's walls are too strong. The Greeks camp on the beach, raid the countryside, and get older. Achilles does most of the winning. Hector, Priam's eldest, does most of the defending. Paris mostly stays inside.</p>
+    </li>
+    <li>
+      <h3>Two men fight over a girl</h3>
+      <p>Agamemnon has to give back a captured woman to appease Apollo, so he takes Achilles's captured woman, Briseis, instead. Achilles, humiliated, refuses to fight. This is the first line of the <em>Iliad</em>: <em>Sing, goddess, the rage of Achilles.</em> The whole poem is about one man sulking, and what it costs.</p>
+    </li>
+    <li>
+      <h3>Without him, the Greeks lose</h3>
+      <p>Zeus, doing Thetis a favour, lets the Trojans push the Greeks back to their ships. Hector starts setting them on fire. Odysseus and the other kings go to Achilles's tent and beg. He says no.</p>
+    </li>
+    <li>
+      <h3>Patroclus</h3>
+      <p>Achilles's closest friend (and, most readers think, more than that) can't stand watching. He borrows Achilles's armour, drives the Trojans back, goes too far, and Hector kills him. Achilles's grief is the most terrifying thing in the poem.</p>
+    </li>
+    <li>
+      <h3>Achilles and Hector</h3>
+      <p>Achilles gets new armour from the gods and goes back out for one reason. He chases Hector three times round the walls of Troy, kills him, ties the body to his chariot and drags it through the dust for days while Hector's parents watch from the wall.</p>
+    </li>
+    <li>
+      <h3>An old man in the tent</h3>
+      <p>King Priam sneaks into the Greek camp alone at night, kneels, and kisses the hands that killed his son, asking for the body back. Achilles thinks of his own father and weeps. He gives Hector back. That's where the <em>Iliad</em> ends: not with Troy falling, but with two enemies crying together.</p>
+    </li>
+    <li>
+      <h3>Achilles dies</h3>
+      <p>Not long after. Paris, of all people, shoots him, with Apollo steering the arrow into the one spot on his heel his mother missed when she dipped him in the river of the dead as a baby. Paris dies soon after that too. Nobody misses him.</p>
+    </li>
+    <li>
+      <h3>The horse</h3>
+      <p>Odysseus's idea. The Greeks build a giant wooden horse, hide their best men inside, burn their camp and sail away out of sight. A Greek "deserter" tells the Trojans it's a gift to the gods. A priest named Laocoön says <em>don't trust it</em>; two sea serpents eat him. Cassandra, Priam's daughter, screams that the city is about to fall; she's cursed to be right and never believed. The Trojans wheel it in and throw a party. That night the Greeks climb out, open the gates, and Troy burns.</p>
+    </li>
+  </ol>
+  <p style="margin-top:8px">Priam is killed at his own altar. Hector's baby son is thrown from the walls. Helen is found in the palace; Menelaus raises his sword to kill her, she opens her robe, and he drops it. He takes her home. The Greeks load the ships with loot and prisoners and set off for Greece, having offended just about every god on the way out.</p>
+  <div class="note">
+    <p>That's the moment Nolan's film begins. Odysseus, the man whose idea won the war, has a short sail home to a wife he hasn't seen in ten years. What happens next is in the other guide, and in the cinema.</p>
+  </div>
+</section>
+
+<section id="who">
+  <h2>The names you'll hear</h2>
+  <ul class="cast">
+    <li><span class="who">Agamemnon</span> <span class="city">Mycenae</span><br>Commander of the Greeks. Proud, greedy, not very likeable. Sacrificed his own daughter to get the wind.</li>
+    <li><span class="who">Menelaus</span> <span class="city">Sparta</span><br>His younger brother. Helen's husband. Decent, a bit dull, genuinely heartbroken.</li>
+    <li><span class="who">Achilles</span> <span class="city">Phthia, northern Greece</span><br>Half god, fastest and deadliest man alive, and knows he'll die here. Chose fame over a long life.</li>
+    <li><span class="who">Odysseus</span> <span class="city">Ithaca</span><br>Not the strongest, the smartest. Every trick in this story is his.</li>
+    <li><span class="who">Hector</span> <span class="city">Troy</span><br>Priam's eldest, Troy's best fighter, a husband and father who never wanted the war. The most decent man in the poem, and he's on the losing side.</li>
+    <li><span class="who">Paris</span> <span class="city">Troy</span><br>Hector's little brother. Pretty, cowardly, good with a bow. Started everything.</li>
+    <li><span class="who">Priam</span> <span class="city">Troy</span><br>The old king. Has fifty sons and watches most of them die.</li>
+    <li><span class="who">Clytemnestra</span> <span class="city">Mycenae</span><br>Agamemnon's wife, Helen's sister. Spends ten years planning what she'll do when he comes home. (Also Lupita Nyong'o, in the film. That's not an accident.)</li>
+  </ul>
+</section>
+
+<section id="writers">
+  <h2>Who wrote it all down</h2>
+  <ul class="writers">
+    <li><strong>Homer</strong>, around 700 BC. Possibly one blind poet, possibly a name for generations of singers who performed these stories from memory before anyone wrote them down. The <em>Iliad</em> is the war; the <em>Odyssey</em> is the trip home. Both are still the best versions.</li>
+    <li><strong>Virgil</strong>, a Roman, wrote the <em>Aeneid</em> around 20 BC from the losing side: a Trojan prince escapes the burning city carrying his father on his back and goes on to found Rome. It's where the fullest account of the wooden horse comes from, and the line "beware Greeks bearing gifts".</li>
+    <li><strong>The Athenian playwrights</strong>, 400s BC. Aeschylus wrote what Clytemnestra does when Agamemnon gets home. Euripides wrote <em>The Trojan Women</em>, about what happens to Helen, Cassandra and Hector's widow after the city falls. Bleak, brilliant, still staged.</li>
+    <li><strong>Christopher Marlowe</strong>, 1590s, gave Helen her most famous line: "Was this the face that launched a thousand ships?"</li>
+    <li><strong>Now.</strong> Madeline Miller's <em>The Song of Achilles</em> (the Achilles and Patroclus love story; bring tissues). Pat Barker's <em>The Silence of the Girls</em>, the war from Briseis's point of view. Emily Wilson's translations of both poems, which Nolan reportedly used.</li>
+  </ul>
+</section>
+
+<section id="phrases">
+  <h2>Things you already say that come from this</h2>
+  <dl class="phrases">
+    <dt>Achilles heel</dt><dd>The one weak spot. His mother held him by the ankle when she dipped him.</dd>
+    <dt>Trojan horse</dt><dd>A gift with something nasty inside. Now also a computer virus.</dd>
+    <dt>Beware Greeks bearing gifts</dt><dd>Laocoön's warning, seconds before the serpents.</dd>
+    <dt>A Cassandra</dt><dd>Someone who's right about the disaster and ignored anyway.</dd>
+    <dt>An odyssey</dt><dd>Any long, eventful journey. Named after one man's very bad commute.</dd>
+    <dt>Wine-dark sea, rosy-fingered dawn</dt><dd>Homer's phrases, repeated so the singer could catch his breath. Listen for them in the film's dialogue.</dd>
+  </dl>
+</section>
+
+</main>
+
+<footer>
+  Companion to the Odyssey guide. Based on Homer's <em>Iliad</em>, Virgil's <em>Aeneid</em>, and the older myths around them. Read before Christopher Nolan's <em>The Odyssey</em> (2026).
+</footer>
+
+</body>
+</html>
